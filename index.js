@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const db = require("./app/src/database/database");
+const postRoute = require("./app/src/modules/blog/routers/post.router");
+
+const apiRoute = "/api/v1";
 
 const bootstrap = async () => {
   try {
@@ -15,6 +18,11 @@ const bootstrap = async () => {
 };
 
 bootstrap();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(apiRoute + "/posts", postRoute);
 
 app.get("/", (req, res) => {
   res.json("Hello World!");
