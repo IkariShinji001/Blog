@@ -1,6 +1,13 @@
 const express = require('express')
 const router = express.Router();
-const Tag = require('../controllers/tag.controller')
+const TagController = require('../controllers/tag.controller');
 
 router.route('/')
-    .get(Tag.getAllTags)
+    .get(TagController.getAllTags)
+    .post(TagController.createTag)
+
+router.route("/:id")
+    .delete(TagController.deleteTag)
+    .put(TagController.updateTag)
+
+module.exports = router;

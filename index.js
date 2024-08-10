@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 const db = require("./app/src/database/database");
 const postRoute = require("./app/src/modules/blog/routers/post.router");
+const tagRoute = require("./app/src/modules/blog/routers/tag.router")
 
 const apiRoute = "/api/v1";
 
@@ -23,6 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(apiRoute + "/posts", postRoute);
+app.use(apiRoute + "/tags", tagRoute)
 
 app.get("/", (req, res) => {
   res.json("Hello World!");

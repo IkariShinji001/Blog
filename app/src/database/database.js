@@ -11,6 +11,7 @@ class DB {
     try {
       await this.sequelize.authenticate();
       console.log("Connection has been established successfully.");
+      await this.sequelize.sync()
     } catch (error) {
       console.error("Unable to connect to the database:", error);
     }
