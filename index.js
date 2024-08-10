@@ -24,6 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(apiRoute + "/posts", postRoute);
+app.use(apiRoute + "/category", categoryRoute);
 
 app.get("/", (req, res) => {
   res.json("Hello World!");
