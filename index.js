@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 const db = require("./app/src/database/database");
 const postRoute = require("./app/src/modules/blog/routers/post.router");
+const tagRoute = require("./app/src/modules/blog/routers/tag.router")
 const adminRoute = require("./app/src/modules/admin/routers/admin.router");
 const cookieParser = require("cookie-parser");
 
@@ -27,6 +28,7 @@ app.use(cookieParser());
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
 app.use(apiRoute + "/posts", postRoute);
+app.use(apiRoute + "/tags", tagRoute)
 app.use(apiRoute + "/admins", adminRoute);
 
 app.get("/", (req, res) => {
