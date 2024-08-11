@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 class DB {
   constructor() {
-    this.sequelize = new Sequelize("Blog", "postgres", "hukhan0607", {
+    this.sequelize = new Sequelize("Blog", "postgres", "kiet1911", {
       host: "localhost",
       dialect: "postgres",
     });
