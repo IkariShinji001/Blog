@@ -22,7 +22,7 @@ class CategoryController {
   }
   async deleteCategory(req, res, next) {
     try {
-      const { id } = req.body;
+      const id = req.params.id
       const category = await CategoryService.deleteCategory(id);
       return res.status(200).json(category);
     } catch (error) {
@@ -42,8 +42,9 @@ class CategoryController {
   }
   async updateCategory(req, res, next) {
     try {
-      const { id, name } = req.body;
-      const category = await CategoryService.updateCategory(id, name);
+      const { id } = req.params;
+      const { nameData } = req.body;
+      const category = await CategoryService.updateCategory(id, nameData);
       return res.status(200).json(category);
     } catch (error) {
       console.log(error);

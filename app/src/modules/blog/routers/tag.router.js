@@ -8,6 +8,6 @@ router.route('/')
 
 router.route("/:id")
     .delete(TagController.deleteTag)
-    .put(TagController.updateTag)
+    .patch(TagController.updateTag)
 
 module.exports = router;
